@@ -9,17 +9,17 @@ def fetch_players(ip):
             players = response.json()
             return players
         else:
-            print("Error hittad. Status code:", response.status_code)
+            print("Error Found. Status code:", response.status_code)
             return None
     except Exception as e:
-        print("IP Existerar inte.:", e)
+        print("IP Does not exist.:", e)
         return None
 
 def sort_by_id(player):
     return player['id']
 
 def main():
-    ip = input("Ange IP: ")
+    ip = input("Enter IP: ")
     players = fetch_players(ip)
     if players is not None:
         sorted_players = sorted(players, key=sort_by_id)
